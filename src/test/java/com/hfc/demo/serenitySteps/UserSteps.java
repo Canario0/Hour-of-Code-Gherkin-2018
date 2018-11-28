@@ -60,10 +60,6 @@ public class UserSteps {
     public void with_start_date(String entranceDay) {
         try {
             Date entranceDate = DateFormat.getDateInstance(DateFormat.LONG, Locale.ENGLISH).parse(entranceDay);
-            Serenity.setSessionVariable("entranceDay").to(entranceDay);
-            Date today = new Date();
-            System.out.println(today + "-" + entranceDate);
-            Assert.assertTrue(entranceDate.after(today));
             Calendar inputDate = Calendar.getInstance();
             inputDate.setTime(entranceDate);
             ryanairHome.setStartingDate(inputDate);
