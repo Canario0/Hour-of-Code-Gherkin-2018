@@ -6,8 +6,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-    features = "src/test/resources/features/",
-        glue = "com.hfc.demo.stepDefinitions"
-        )
+    features = "src/test/resources/features/example.feature",
+    glue = "com.hfc.demo.stepDefinitions"
+)
 public class TestRunner {
+
 }

@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 @DefaultUrl("https://www.ryanair.com/gb/en/")
@@ -94,19 +93,19 @@ public class RyanairHome extends PageObject {
     }
 
     public void setStartingDate(Calendar startDate) {
-        yearOut.waitUntilVisible();
-        monthOut.waitUntilVisible();
         dayOut.waitUntilVisible();
-        yearOut.type("" + startDate.get(Calendar.YEAR));
+        monthOut.waitUntilVisible();
+        yearOut.waitUntilVisible();
+        yearOut.type("" + (startDate.get(Calendar.YEAR)+1));
         monthOut.type("" + startDate.get(Calendar.MONTH));
         dayOut.type("" + startDate.get(Calendar.DAY_OF_MONTH));
     }
 
     public void setReturnDate(Calendar calendarOut) {
-        yearBack.waitUntilVisible();
-        monthBack.waitUntilVisible();
         dayBack.waitUntilVisible();
-        yearBack.type("" + calendarOut.get(Calendar.YEAR));
+        monthBack.waitUntilVisible();
+        yearBack.waitUntilVisible();
+        yearBack.type("" + (calendarOut.get(Calendar.YEAR)+1));
         monthBack.type("" + calendarOut.get(Calendar.MONTH));
         dayBack.type("" + calendarOut.get(Calendar.DAY_OF_MONTH));
     }

@@ -1,7 +1,6 @@
 package com.hfc.demo.stepDefinitions;
 
 import com.hfc.demo.serenitySteps.UserSteps;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -57,12 +56,12 @@ public class GherkinSteps {
         user.i_want_to_go_from_to(from, to);
     }
 
-    @And("^with dates '<dateOut>'$")
+    @And("^with dates '(.*)'$")
     public void withDatesDateOut(String dateOut) {
         user.with_start_date(dateOut);
     }
 
-    @And("^'<dateReturn>'$")
+    @And("^'(.*)'$")
     public void dateReturn(String dateReturn) {
         user.with_return_date(dateReturn);
     }

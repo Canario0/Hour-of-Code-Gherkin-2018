@@ -5,8 +5,6 @@ import com.hfc.demo.pageObjects.RyanairResults;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
-import org.omg.CORBA.DATA_CONVERSION;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Calendar;
@@ -59,29 +57,30 @@ public class UserSteps {
     }
 
     @Step("And with dates: '<dateOut>'")
-    public void with_start_date(String dateOut) {
+    public void with_start_date(String entranceDay) {
         try {
-            Date datein = DateFormat.getDateInstance(DateFormat.LONG, Locale.ENGLISH).parse(dateOut);
-            Serenity.setSessionVariable("dateOut").to(datein);
+            Date entranceDate = DateFormat.getDateInstance(DateFormat.LONG, Locale.ENGLISH).parse(entranceDay);
+            Serenity.setSessionVariable("entranceDay").to(entranceDay);
             Date today = new Date();
-            Assert.assertTrue(datein.after(today));
-            Calendar calendarOut = Calendar.getInstance();
-            calendarOut.setTime(datein);
-            ryanairHome.setStartingDate(calendarOut);
+            System.out.println(today + "-" + entranceDate);
+            Assert.assertTrue(entranceDate.after(today));
+            Calendar inputDate = Calendar.getInstance();
+            inputDate.setTime(entranceDate);
+            ryanairHome.setStartingDate(inputDate);
         } catch (ParseException e) {
             e.printStackTrace();
         }
     }
 
     @Step("And '<dateReturn>'")
-    public void with_return_date(String dateReturn) {
+    public void with_return_date(String dayReturn) {
         if (Serenity.sessionVariableCalled("direction").equals("idaVuelta")) {
             try {
-                Date datein = DateFormat.getDateInstance(DateFormat.LONG, Locale.ENGLISH).parse(dateReturn);
-                Assert.assertTrue(((Date)Serenity.sessionVariableCalled("dateOut")).after(datein));
-                Calendar calendarOut = Calendar.getInstance();
-                calendarOut.setTime(datein);
-                ryanairHome.setReturnDate(calendarOut);
+                Date dateReturn = DateFormat.getDateInstance(DateFormat.LONG, Locale.ENGLISH).parse(dayReturn);
+                System.out.println(dayReturn);
+                Calendar outputDate = Calendar.getInstance();
+                outputDate.setTime(dateReturn);
+                ryanairHome.setReturnDate(outputDate);
             } catch (ParseException e) {
                 e.printStackTrace();
             }

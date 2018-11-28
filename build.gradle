@@ -50,14 +50,3 @@ task chrome(type: Test) {
     testLogging.showStandardStreams = true
     include "com/hfc/demo/testRunner/TestRunner.class"
 }
-
-//test {
-//    systemProperties System.getProperties()
-//    systemProperties['context'] = 'android'
-//    systemProperties['appium.platformName']= 'android'
-//    systemProperties['appium.hub'] = 'http://0.0.0.0:4723/wd/hub'
-//    systemProperties['appium.deviceName'] = 'ALTEN Galaxy S5'
-//    systemProperties['appium.platformVersion'] = '6.0.1'
-//    testLogging.showStandardStreams = true
-//    include "com/adidas/testRunner/TestRunner.class"
-//}

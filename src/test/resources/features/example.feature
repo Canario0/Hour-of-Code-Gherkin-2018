@@ -28,4 +28,4 @@ Feature: Ryanair booking
 
     Examples:
       | direction | fromPlace | toPlace  | dateOut           | dateReturn        |
-      | idaVuelta | Madrid    | Toulouse | November 24, 2018 | November 28, 2018 |
+      | idaVuelta | Madrid    | Toulouse | November 20, 2020 | November 25, 2020 |
