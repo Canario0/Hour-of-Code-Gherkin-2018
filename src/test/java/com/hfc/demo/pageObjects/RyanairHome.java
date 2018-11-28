@@ -93,20 +93,20 @@ public class RyanairHome extends PageObject {
     }
 
     public void setStartingDate(Calendar startDate) {
-        dayOut.waitUntilVisible();
-        monthOut.waitUntilVisible();
         yearOut.waitUntilVisible();
-        yearOut.type("" + (startDate.get(Calendar.YEAR)+1));
-        monthOut.type("" + startDate.get(Calendar.MONTH));
+        monthOut.waitUntilVisible();
+        dayOut.waitUntilVisible();
+        yearOut.type("" + (startDate.get(Calendar.YEAR)));
+        monthOut.type("" + (startDate.get(Calendar.MONTH)+1));
         dayOut.type("" + startDate.get(Calendar.DAY_OF_MONTH));
     }
 
     public void setReturnDate(Calendar calendarOut) {
-        dayBack.waitUntilVisible();
-        monthBack.waitUntilVisible();
         yearBack.waitUntilVisible();
-        yearBack.type("" + (calendarOut.get(Calendar.YEAR)+1));
-        monthBack.type("" + calendarOut.get(Calendar.MONTH));
+        monthBack.waitUntilVisible();
+        dayBack.waitUntilVisible();
+        yearBack.type("" + (calendarOut.get(Calendar.YEAR)));
+        monthBack.type("" + (calendarOut.get(Calendar.MONTH)+1));
         dayBack.type("" + calendarOut.get(Calendar.DAY_OF_MONTH));
     }
 

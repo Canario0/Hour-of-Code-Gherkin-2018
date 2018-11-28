@@ -77,7 +77,6 @@ public class UserSteps {
         if (Serenity.sessionVariableCalled("direction").equals("idaVuelta")) {
             try {
                 Date dateReturn = DateFormat.getDateInstance(DateFormat.LONG, Locale.ENGLISH).parse(dayReturn);
-                System.out.println(dayReturn);
                 Calendar outputDate = Calendar.getInstance();
                 outputDate.setTime(dateReturn);
                 ryanairHome.setReturnDate(outputDate);
